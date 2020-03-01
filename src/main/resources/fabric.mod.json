@@ -21,6 +21,9 @@
   "entrypoints": {
     "main": [
       "net.fabricmc.example.ExampleMod"
+    ],
+    "client": [
+      "net.fabricmc.example.ClientInitializer"
     ]
   },
   "mixins": [
@@ -30,7 +33,7 @@
   "depends": {
     "fabricloader": ">=0.7.2",
     "fabric": "*",
-    "minecraft": "1.16-alpha.20.6.a"
+    "minecraft": "1.16-alpha.20.9.a"
   },
   "suggests": {
     "flamingo": "*"

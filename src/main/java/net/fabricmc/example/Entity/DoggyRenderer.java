@@ -1,18 +1,29 @@
 package net.fabricmc.example.Entity;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.model.WolfEntityModel;
+import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.util.Identifier;
 
-public class DoggyRenderer extends MobEntityRenderer<DoggyEntity, WolfEntityModel<DoggyEntity>> {
-    public DoggyRenderer(EntityRenderDispatcher renderManager) {
-        super(renderManager, new WolfEntityModel<DoggyEntity>(), 1);
+@Environment(EnvType.CLIENT)
+public class DoggyRenderer extends MobEntityRenderer<WolfEntity, WolfEntityModel<WolfEntity>> {
+    public DoggyRenderer(EntityRenderDispatcher entityRenderDispatcher) {
+        super(entityRenderDispatcher, new WolfEntityModel(), 0.5F);
     }
 
     @Override
-    public Identifier getTexture(DoggyEntity entity) {
-        return new Identifier("modid", "doggy_entity2.png");
+    protected float getAnimationProgress(WolfEntity entity, float tickDelta) {
+        return entity.method_6714();
     }
+
+    @Override
+    public Identifier getTexture(WolfEntity entity) {
+        return new Identifier("modid:textures/entity/doggy_entity.png");
+    }
+
+
 }
