@@ -17,7 +17,7 @@ public class DoggyRenderer extends MobEntityRenderer<WolfEntity, WolfEntityModel
 
     @Override
     protected float getAnimationProgress(WolfEntity entity, float tickDelta) {
-        return entity.method_6714();
+        return 15;
     }
 
     @Override

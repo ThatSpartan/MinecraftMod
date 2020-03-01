@@ -92,18 +92,18 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("modid", "fabric_item"), FABRIC_ITEM);
 		Registry.register(Registry.ITEM, new Identifier("modid", "branch_pickaxe_item"), BRANCH_PICKAXE_ITEM);
 
-		ClientTickCallback.EVENT.register(e -> {
-			if (e.player == null) return;
-			if (e.player.inventory.getMainHandStack().getItem().equals(ExampleMod.FABRIC_ITEM)) {
-				// Toggle message
-//				TranslatableText msg = new TranslatableText("ITEM");
-				// Display msg above hotbar, set false to display in text chat
-//				e.player.addChatMessage(msg, false);
-
-
-
-			}
-		});
+//		ClientTickCallback.EVENT.register(e -> {
+//			if (e.player == null) return;
+//			if (e.player.inventory.getMainHandStack().getItem().equals(ExampleMod.FABRIC_ITEM)) {
+//				// Toggle message
+////				TranslatableText msg = new TranslatableText("ITEM");
+//				// Display msg above hotbar, set false to display in text chat
+////				e.player.addChatMessage(msg, false);
+//
+//
+//
+//			}
+//		});
 
 	}
 
