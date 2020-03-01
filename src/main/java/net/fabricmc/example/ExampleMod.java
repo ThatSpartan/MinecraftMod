@@ -2,6 +2,7 @@ package net.fabricmc.example;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.example.Entity.AttackBeeEntity;
 import net.fabricmc.example.Entity.DoggyEntity;
 import net.fabricmc.example.Entity.DoggyRenderer;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
@@ -36,6 +37,7 @@ public class ExampleMod implements ModInitializer {
 	private EntityType<DoggyEntity> myDoggy;
 //	public static final EntityType<DoggyEntity> DOGGY_ENTITY = Registry.register(Registry.ENTITY_TYPE, new Identifier("modid", "doggy_entity3"), FabricEntityTypeBuilder.create(EntityCategory.AMBIENT, DoggyEntity::new).size(EntityDimensions.fixed(2, 1)).build());
 	public static final EntityType<DoggyEntity> DOGGY_ENTITY = FabricEntityTypeBuilder.create(EntityCategory.AMBIENT, DoggyEntity::new).size(EntityDimensions.fixed(0.6F, 0.85F)).build();
+	public static final EntityType<AttackBeeEntity> ATTACK_BEE_ENTITY = FabricEntityTypeBuilder.create(EntityCategory.AMBIENT, AttackBeeEntity::new).size(EntityDimensions.fixed(1.0F, 1.0F)).build();
 
 	public static final EmeraldBowItem EMERALD_BOW_ITEM = new EmeraldBowItem(new Item.Settings().group(ItemGroup.MISC).maxCount(1));
 	public static final TeleportItem TELEPORT_ITEM = new TeleportItem(new Item.Settings().group(ItemGroup.MISC).maxCount(10));
@@ -84,6 +86,7 @@ public class ExampleMod implements ModInitializer {
 //		myDoggy = FabricEntityTypeBuilder.create(DoggyEntity.class, (w) -> new DoggyEntity(myDoggy, w)).build();
 //		EntityRendererRegistry.INSTANCE.register(ExampleMod.DOGGY_ENTITY, (entityRenderDispatcher, context) -> new DoggyRenderer(entityRenderDispatcher));
 		Registry.register(Registry.ENTITY_TYPE, new Identifier("modid", "doggy_entity"), DOGGY_ENTITY);
+		Registry.register(Registry.ENTITY_TYPE, new Identifier("modid", "attack_bee_entity"), ATTACK_BEE_ENTITY);
 
 		Registry.register(Registry.ITEM, new Identifier("modid", "doggy_spawn_egg"), new SpawnEggItem(ExampleMod.DOGGY_ENTITY, 0x6CA1C9, 0xA1B2C7, new Item.Settings().group(ItemGroup.MISC)));
 
