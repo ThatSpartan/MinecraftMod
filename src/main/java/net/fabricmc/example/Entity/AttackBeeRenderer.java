@@ -19,6 +19,6 @@ public class AttackBeeRenderer extends MobEntityRenderer<BeeEntity, BeeEntityMod
 
     @Override
     public Identifier getTexture(BeeEntity entity) {
-        return new Identifier("modid:textures/entity/attack_bee.png");
+        return new Identifier("modid:textures/entity/bee.png");
     }
 }
