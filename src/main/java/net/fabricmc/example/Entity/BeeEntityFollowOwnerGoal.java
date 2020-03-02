@@ -72,21 +72,21 @@ public class BeeEntityFollowOwnerGoal extends Goal {
     public void stop() {
         this.owner = null;
         this.navigation.stop();
-        this.beeEntity.setPathfindingPenalty(PathNodeType.WATER, this.oldWaterPathfindingPenalty);
+//        this.beeEntity.setPathfindingPenalty(PathNodeType.WATER, this.oldWaterPathfindingPenalty);
     }
 
     public void tick() {
         this.beeEntity.getLookControl().lookAt(this.owner, 10.0F, (float)this.beeEntity.getLookPitchSpeed());
         if (--this.updateCountdownTicks <= 0) {
             this.updateCountdownTicks = 10;
-            if (!this.beeEntity.isLeashed() && !this.beeEntity.hasVehicle()) {
+//            if (!this.beeEntity.isLeashed() && !this.beeEntity.hasVehicle()) {
                 if (this.beeEntity.squaredDistanceTo(this.owner) >= 144.0D) {
                     this.tryTeleport();
                 } else {
                     this.navigation.startMovingTo(this.owner, this.speed);
                 }
 
-            }
+//            }
         }
     }
 

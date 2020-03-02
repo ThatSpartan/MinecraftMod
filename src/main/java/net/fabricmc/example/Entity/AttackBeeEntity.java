@@ -3,27 +3,21 @@ package net.fabricmc.example.Entity;
 import net.minecraft.advancement.criterion.Criterions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.goal.AttackGoal;
-import net.minecraft.entity.ai.goal.FollowOwnerGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.MoveToTargetPosGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntityWithAi;
 import net.minecraft.entity.passive.BeeEntity;
-import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.ServerConfigHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -37,9 +31,9 @@ public class AttackBeeEntity extends BeeEntity {
     @Override
     protected void initGoals() {
         super.initGoals();
-        this.goalSelector.add(0, new AttackBeeEntity.StingGoal(this, 1.399999976158142D, true));
-        this.goalSelector.add(1, new BeeEntityFollowOwnerGoal(this, 1.399999976158142D, 3, 1, true));
-
+        this.goalSelector.add(0, new AttackBeeEntity.StingGoal(this, 2.0D, true));
+        this.goalSelector.add(1, new BeeEntityFollowOwnerGoal(this, 1.8D, 2.0F, 1.0F, true));
+        this.targetSelector.add(1, new BeeEntityAttackWithOwnerGoal(this));
     }
 
     class StingGoal extends MeleeAttackGoal {
