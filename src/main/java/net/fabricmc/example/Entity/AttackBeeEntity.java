@@ -38,7 +38,7 @@ public class AttackBeeEntity extends BeeEntity {
     protected void initGoals() {
         super.initGoals();
         this.goalSelector.add(0, new AttackBeeEntity.StingGoal(this, 1.399999976158142D, true));
-        this.goalSelector.add(1, new FollowOwnerGoal(this, 1.399999976158142D, 3, 1, true));
+        this.goalSelector.add(1, new BeeEntityFollowOwnerGoal(this, 1.399999976158142D, 3, 1, true));
 
     }
 
@@ -53,13 +53,6 @@ public class AttackBeeEntity extends BeeEntity {
 
         public boolean shouldContinue() {
             return super.shouldContinue();
-        }
-    }
-
-    class FollowOwnerGoal extends BeeEntityFollowOwnerGoal {
-
-        public FollowOwnerGoal(AttackBeeEntity beeEntity, double speed, float minDistance, float maxDistance, boolean leavesAllowed) {
-            super(beeEntity, speed, minDistance, maxDistance, leavesAllowed);
         }
     }
 
